@@ -1,98 +1,54 @@
 # PrepTrack — Placement Preparation Performance Analyzer
 
-# Project Title
 
-**PrepTrack — Placement Preparation Performance Analyzer**
+## Project Title
+PrepTrack — Placement Preparation Performance Analyzer
 
-# Project Overview
+## Project Overview
+PrepTrack is a Python console application that analyzes a student's placement-preparation performance and determines readiness for a placement mock interview. The application collects student profile information (`student_name`, `registration_number`, `graduation_year`), attendance percentage (`attendance`), project completion status (`project_completed`), profile verification status (`profile_verified`), and seven daily coding-practice scores. It performs input validation, score classification, highest/lowest score tracking, and critical-score detection entirely without lists, tuples, or built-in aggregation functions. Finally, it displays a complete formatted report showing the practice summary, performance analysis, critical score information, and the final placement decision.
 
-PrepTrack is a Python console application designed to analyze student performance and determine placement interview readiness. The application collects student profile information (`student_name`, `registration_number`, `graduation_year`), attendance percentage (`attendance`), project completion status (`project_completed`), profile verification status (`profile_verified`), and seven daily coding-practice scores.
+## Features Implemented
+- **Student Details Processing**:
+  - Non-empty student name input validation loop (`student_name`)
+  - Registration number input collection (`registration_number`)
+  - Graduation year input collection (`graduation_year`), evaluated later during eligibility checking
+  - Attendance percentage validation loop enforcing range 0–100 with an "Attendance accepted." confirmation message (`attendance`)
+  - Case-insensitive `yes`/`no` validation loops (using `.lower()`) converting inputs into Boolean flags for project completion (`project_completed`) and profile verification (`profile_verified`)
 
-The program performs comprehensive input validation, score classification, highest and lowest score tracking, first critical score detection, average score calculation, placement eligibility evaluation, and final readiness analysis without using built-in list data structures. Finally, it generates a structured report displaying the student's practice summary, performance analysis, critical score information, placement readiness, primary blocker, and recommended next action.
+- **Practice & Score Processing**:
+  - Seven-day practice loop processing (`for day in range(1, 8)`)
+  - Score validation loop supporting `-1` for absence or `0–100` score range, with a "Score accepted." confirmation message
+  - Absence handling with `absent_days` counter, a dedicated "Absent" result line, and `continue` control flow
+  - Four-tier daily performance classification: Strong (75–100), Satisfactory (60–74), Needs Improvement (40–59), and Critical (0–39)
+  - Tracking of practice engagement metrics: Attempted Days, Absent Days, Passed Days (score ≥ 60), and Failed Days (score < 60)
+  - Detailed score category counts for Strong Days, Satisfactory Days, Needs Improvement Days, and Critical Days
 
-# Features Implemented
+- **Performance & Critical Score Analytics**:
+  - Total score accumulation (`total_score`) and average score calculation (`average_score`) formatted to 2 decimal places with zero-division protection
+  - List-free high/low score detection tracking `Highest Score`, `Highest Score Day`, `Lowest Score`, and `Lowest Score Day` using an initialization flag (`first_attempt_found`)
+  - Fallback display handling ("Not Available") for highest/lowest metrics when no practice days were attempted
+  - First critical score lock tracking (`Critical Score Found`, `First Critical Day`, `First Critical Score`) with fallback handling ("Not Applicable") when no critical score exists (score < 40)
 
-### Student Details Processing
+- **Readiness Evaluation & Final Decision Report**:
+  - Eight independent eligibility Boolean expressions (graduation year, attendance, practice count, average score, critical-score clearance, passed-days count, project completion, profile verification)
+  - Combined `placement_ready` Boolean and explicit `Placement Ready` line in the report
+  - Priority-based decision chain evaluating 9 status levels in order, so only the first major blocker is displayed
+  - Determination of `Final Status`, `Primary Blocker`, and actionable `Next Action`
+  - Clean formatted ASCII report terminal output (`PREPTRACK REPORT`) with structured sections (`PRACTICE SUMMARY`, `PERFORMANCE ANALYSIS`, `FINAL DECISION`)
 
-- Non-empty student name validation loop (`student_name`)
-- Registration number input collection (`registration_number`)
-- Graduation year input collection (`graduation_year`)
-- Attendance percentage validation loop enforcing the range **0–100%** (`attendance`)
-- Yes/No validation loop for project completion (`project_completed`)
-- Yes/No validation loop for profile verification (`profile_verified`)
-
-### Practice & Score Processing
-
-- Seven-day practice processing using `for day in range(1, 8)`
-- Score validation loop supporting **-1** for absent days or scores between **0 and 100**
-- Absent day handling using the `continue` statement
-- Daily score classification into:
-  - Strong (75–100)
-  - Satisfactory (60–74)
-  - Needs Improvement (40–59)
-  - Critical (0–39)
-- Tracking:
-  - Attempted Days
-  - Absent Days
-  - Passed Days
-  - Failed Days
-- Performance category counting:
-  - Strong Days
-  - Satisfactory Days
-  - Needs Improvement Days
-  - Critical Days
-
-### Performance & Critical Score Analytics
-
-- Total score accumulation (`total_score`)
-- Average score calculation (`average_score`) with division-by-zero protection
-- Highest score tracking (`highest_score`, `highest_score_day`)
-- Lowest score tracking (`lowest_score`, `lowest_score_day`)
-- Initialization using `first_attempt_found`
-- First critical score tracking using:
-  - `critical_score_found`
-  - `first_critical_day`
-  - `first_critical_score`
-- Displays **Not Available** for highest and lowest scores when no practice is attempted
-- Displays **Not Applicable** when no critical score exists
-
-### Placement Readiness & Final Decision
-
-- Placement eligibility evaluation using multiple conditions
-- Priority-based decision logic
-- Final Status generation
-- Primary Blocker identification
-- Next Action recommendation
-- Placement Ready indicator
-- Structured **PREPTRACK REPORT** generation
-
-# Python Concepts Used
-
+## Python Concepts Used
 - Basic Input / Output (`input()`, `print()`)
 - Type Casting (`int()`, `float()`)
-- Variables
-- Primitive Data Types
-  - String
-  - Integer
-  - Float
-  - Boolean
-- Arithmetic Operators
-- Comparison Operators
-- Logical Operators (`and`, `or`, `not`)
+- Primitive Data Types & Variables (Strings, Integers, Floats, Booleans)
 - Conditional Statements (`if`, `elif`, `else`)
-- Nested Conditions
-- `while` Loop
-- `for` Loop with `range()`
-- Loop Control Statements (`break`, `continue`)
-- Boolean Expressions
-- Counters
-- Accumulators
-- Formatted Output using f-strings
-- Precision Formatting (`{average_score:.2f}`)
+- Boolean Operators & Logic (`and`, `not`)
+- Loops (`while` for validation, `for` with `range(1, 8)`)
+- Loop Control Keywords (`break`, `continue`)
+- Increment Counters & Accumulators (`total_score`, `attempted_days`, `absent_days`, `passed_days`, `failed_days`, etc.)
+- String Formatting & Precision Control (f-strings, `{attendance:.2f}`, `{average_score:.2f}`, inline ternary expressions)
 
-# Instructions to Run the Program
-
-To execute the application, run the following command:
+## Instructions to Run the Program
+To execute the application, run:
 
 ```bash
 python main.py
@@ -104,66 +60,48 @@ or
 python3 main.py
 ```
 
-## Steps to Run
+## Sample Output
 
-1. Install Python 3.x on your system.
-2. Open the project folder.
-3. Open a terminal or command prompt.
-4. Navigate to the project directory.
-5. Execute the program using:
-
-```bash
-python main.py
-```
-
-6. Enter the required student details.
-7. Enter the attendance percentage.
-8. Enter project completion status (`yes` or `no`).
-9. Enter profile verification status (`yes` or `no`).
-10. Enter practice scores for all seven days (`0–100`) or `-1` for an absent day.
-11. View the generated PrepTrack report.
-
-# Sample Output
-
+```text
 ==================================================
               PREPTRACK APPLICATION
 ==================================================
-Enter student name: Manoj Kumar
-Enter registration number: KODJGP0D2
+Enter student name: Manoj
+Enter registration number: PY24045
 Enter graduation year: 2026
-Enter attendance percentage: 90
+Enter attendance percentage: 82
 Attendance accepted.
 Has the student completed the required project? (yes/no): yes
 Is the student profile verified? (yes/no): yes
-Enter Day 1 score (0-100) or -1 for absent:98
+Enter Day 1 score (0-100) or -1 for absent: 85
 Score accepted.
 Day 1 Performance : Strong
-Enter Day 2 score (0-100) or -1 for absent:89
+Enter Day 2 score (0-100) or -1 for absent: 78
 Score accepted.
 Day 2 Performance : Strong
-Enter Day 3 score (0-100) or -1 for absent:87
+Enter Day 3 score (0-100) or -1 for absent: 92
 Score accepted.
 Day 3 Performance : Strong
-Enter Day 4 score (0-100) or -1 for absent:75
+Enter Day 4 score (0-100) or -1 for absent: 60
 Score accepted.
-Day 4 Performance : Strong
-Enter Day 5 score (0-100) or -1 for absent:-1
+Day 4 Performance : Satisfactory
+Enter Day 5 score (0-100) or -1 for absent: 35
 Score accepted.
-Day 5 Result : Absent
-Enter Day 6 score (0-100) or -1 for absent:68
+Day 5 Performance : Critical
+Enter Day 6 score (0-100) or -1 for absent: -1
 Score accepted.
-Day 6 Performance : Satisfactory
-Enter Day 7 score (0-100) or -1 for absent:59
+Day 6 Result : Absent
+Enter Day 7 score (0-100) or -1 for absent: 70
 Score accepted.
-Day 7 Performance : Needs Improvement
+Day 7 Performance : Satisfactory
 
 ==================================================
               PREPTRACK REPORT
 ==================================================
-Student Name           : Manoj Kumar
-Registration Number    : KODJGP0D2
+Student Name           : Manoj
+Registration Number    : PY24045
 Graduation Year        : 2026
-Attendance             : 90.00%
+Attendance             : 82.00%
 
 Project Completed      : Yes
 Profile Verified       : Yes
@@ -178,183 +116,102 @@ Failed Days            : 1
 
 PERFORMANCE ANALYSIS
 ----------------------
-Strong Days            : 4
-Satisfactory Days      : 1
-Needs Improvement Days : 1
-Critical Days          : 0
+Strong Days            : 3
+Satisfactory Days      : 2
+Needs Improvement Days : 0
+Critical Days          : 1
 
-Total Score            : 476
-Average Score          : 79.33
+Total Score            : 420
+Average Score          : 70.00
 
-Highest Score          : 98
-Highest Score Day      : Day 1
-Lowest Score           : 59
-Lowest Score Day       : Day 7
+Highest Score          : 92
+Highest Score Day      : Day 3
+Lowest Score           : 35
+Lowest Score Day       : Day 5
 
-First Critical Day     : Not Applicable
-First Critical Score   : Not Applicable
+First Critical Day     : Day 5
+First Critical Score   : 35
 
 FINAL DECISION
 ------------------
-Placement Ready        : Yes
+Placement Ready        : No
 
-Final Status           : Ready for Mock Interview
-Primary Blocker        : None
-Next Action            : Proceed to the mock interview.
+Final Status           : Critical Support Required
+Primary Blocker        : Critical score found
+Next Action            : Improve the first critical score.
 ==================================================
+```
 
-# Test-Result Summary
 
-# Test-Result Summary
+## Test-Result Summary
 
 | Test ID | Scenario | Expected Result | Actual Result | Status |
-|:-------:|----------|-----------------|---------------|:------:|
-| TC-01 | All eligibility conditions satisfied | Ready for Mock Interview | Ready for Mock Interview | ✅ Pass |
-| TC-02 | One critical score (<40) | Critical Support Required | Critical Support Required | ✅ Pass |
-| TC-03 | Project not completed | Project Incomplete | Project Incomplete | ✅ Pass |
-| TC-04 | Profile not verified | Profile Verification Pending | Profile Verification Pending | ✅ Pass |
-| TC-05 | Attendance below minimum (75%) | Attendance Improvement Required | Attendance Improvement Required | ✅ Pass |
-| TC-06 | Graduation year outside eligible range (2025–2027) | Graduation Not Eligible | Graduation Not Eligible | ✅ Pass |
-| TC-07 | Empty student name | Prompted until a valid name is entered | Prompted until a valid name is entered | ✅ Pass |
-| TC-08 | Invalid attendance (less than 0 or greater than 100) | Prompted until a valid attendance is entered | Prompted until a valid attendance is entered | ✅ Pass |
-| TC-09 | Invalid project/profile input | Prompted until **"yes"** or **"no"** is entered | Prompted until **"yes"** or **"no"** is entered | ✅ Pass |
-| TC-10 | Invalid practice score (>100 or <-1) | Prompted until a valid score is entered | Prompted until a valid score is entered | ✅ Pass |
-| TC-11 | All seven practice days absent (-1) | Practice Not Evaluated | Practice Not Evaluated | ✅ Pass |
-| TC-12 | Highest and lowest score tracking | Correct highest and lowest score with corresponding day displayed | Correct values displayed | ✅ Pass |
-| TC-13 | Average score calculation | Average displayed with two decimal places | Average displayed correctly | ✅ Pass |
-| TC-14 | Multiple blockers present | Highest-priority blocker displayed | Correct blocker displayed | ✅ Pass |
+|---------|----------|-----------------|---------------|--------|
+| TC-01 | All requirements satisfied | Ready for Mock Interview | Ready for Mock Interview | ✅ Pass |
+| TC-02 | One score below 40 | Critical Support Required | Critical Support Required | ✅ Pass |
+| TC-03 | Fewer than six attempted days | Practice Incomplete | Practice Incomplete | ✅ Pass |
+| TC-04 | Fewer than four passed days | Practice Improvement Required | Practice Improvement Required | ✅ Pass |
+| TC-05 | Average score below 70 | Practice Improvement Required | Practice Improvement Required | ✅ Pass |
+| TC-06 | Attendance below 75 | Attendance Improvement Required | Attendance Improvement Required | ✅ Pass |
+| TC-07 | Graduation year not eligible | Graduation Not Eligible | Graduation Not Eligible | ✅ Pass |
+| TC-08 | Project incomplete | Project Incomplete | Project Incomplete | ✅ Pass |
+| TC-09 | Profile not verified | Profile Verification Pending | Profile Verification Pending | ✅ Pass |
+| TC-10 | All seven days absent | Practice Not Evaluated | Practice Not Evaluated | ✅ Pass |
+| TC-11 | Invalid score below -1 | Input rejected, re-prompted | Input rejected, re-prompted | ✅ Pass |
+| TC-12 | Invalid score above 100 | Input rejected, re-prompted | Input rejected, re-prompted | ✅ Pass |
+| TC-13 | Exact boundary scores | Correct classifications | Correct classifications | ✅ Pass |
+| TC-14 | Multiple blockers present | First major blocker displayed | First major blocker displayed | ✅ Pass |
 
-# Project Structure
+## Individual Contribution
+Name: Manoj Kumar
 
-```text
-preptrack-Manoj-Kumar/
-│
-├── main.py
-├── README.md
-└── output.txt
-```
-# Individual Contribution
+Repository URL: https://github.com/manojmanu916/preptrack-Manoj-Kumar.git
 
-**Name:** Manoj Kumar
+My main contribution: Implemented the complete execution flow in main.py — building input validation loops for all profile fields, constructing the seven-day practice analysis loop, tracking score metrics without any prohibited data structures, and establishing the priority-based final decision chain.
 
-**Repository URL:** *(Add your GitHub repository URL here)*
+Features I implemented: Interactive input validation loops (student_name, attendance, project_input, profile_input, score); daily score classification and category counting; list-free tracking for highest_score and lowest_score; first critical score locking logic; eight eligibility Boolean expressions and a combined placement_ready flag; a 9-tier if-elif-else priority decision chain; and formatted terminal report rendering.
 
-### My Main Contribution
+Python Concepts I used: while loops, for loops with range(), break, continue, if-elif-else structures, Boolean expressions, accumulators, type casting, and formatted f-strings.
 
-Implemented the complete execution flow in `main.py`, including student profile validation, attendance validation, project and profile verification, seven-day practice score processing, performance classification, placement eligibility evaluation, and generation of the final PrepTrack report.
+Most difficult logic: Tracking highest_score and lowest_score across iterations without using lists, arrays, or built-in max()/min() functions, while correctly excluding absent days (-1) from every comparison.
 
-### Features I Implemented
+Problem I faced: Making sure an absent day (-1) never got compared against lowest_score or added into total_score and average_score.
 
-- Student information validation
-- Attendance validation
-- Project completion validation
-- Profile verification validation
-- Seven-day practice score processing
-- Practice score validation
-- Absent day handling using `continue`
-- Highest score tracking
-- Lowest score tracking
-- Performance classification
-- Passed and failed day counting
-- First critical score detection
-- Total score calculation
-- Average score calculation
-- Placement eligibility evaluation
-- Final decision generation
-- Placement readiness evaluation
-- Complete formatted report generation
+How I solved it: Placed the `if score == -1` check immediately after score validation to increment absent_days and trigger continue, skipping all classification and comparison logic for that day. Used the first_attempt_found flag to set the initial highest/lowest values on the first attempted day, then applied `>` and `<` comparisons only on subsequent attempted days.
 
-### Python Concepts I Used
+## Code Review Completed
 
-- Variables
-- Integer, Float, String and Boolean Data Types
-- Input and Output
-- Type Casting
-- Arithmetic Operators
-- Comparison Operators
-- Logical Operators
-- Assignment Operators
-- `if`, `elif`, `else`
-- Nested Conditions
-- `while` Loop
-- `for` Loop
-- `range()`
-- `break`
-- `continue`
-- Boolean Expressions
-- Counters
-- Accumulators
-- Formatted Output using f-strings
+Reviewed Member: [Teammate name]
 
-### Most Difficult Logic
+Repository URL:
+[Teammate repository link]
 
-The most challenging part of the project was implementing the highest score and lowest score tracking without using lists, arrays, or built-in functions such as `max()` and `min()`. Another challenge was correctly storing only the first critical score while continuing to process the remaining practice days.
+What Was Done Well:
+- The absent-day check (`if score == -1`) runs immediately after score validation and before any classification logic, so `continue` correctly skips highest/lowest comparison, total_score accumulation, and passed/failed counting for that day.
+- The highest/lowest score logic uses the `first_attempt_found` flag to seed both values from the first attempted day instead of defaulting to 0, which correctly avoids a false low score when a student's actual scores are all above 0.
 
-### Problem I Faced
+Issue Identified:
+- The `final_status` strings do not exactly match the status table in Part 24 of the PRD. "Practice Improvement Required" is reused for both the "fewer than four passed days" condition and the "average below 70" condition, even though the PRD defines these as two distinct statuses ("Insufficient Passed Practices" and "Practice Improvement Required"). Similarly, "Graduation Not Eligible", "Project Incomplete", and "Profile Verification Pending" don't match the PRD's specified wording ("Graduation Criteria Not Met" and "Application On Hold" for both the project and profile cases).
 
-Initially, it was difficult to ensure that absent practice days (`-1`) were excluded from total score calculation, average score calculation, highest score tracking, and lowest score tracking. Maintaining accurate counters while processing all seven practice days also required careful control flow.
+Suggested Improvement:
+- Update each `final_status` assignment in the priority decision chain to use the exact status text from the Part 24 table, so the report output matches the PRD specification precisely and passed/failed test cases can be verified against the exact expected strings.
 
-### How I Solved It
+## Feedback Received
 
-I handled absent days immediately after score validation by incrementing `absent_days` and using the `continue` statement to skip further processing for that day. I also used the `first_attempt_found` flag to initialize the first valid score before comparing subsequent scores, ensuring accurate highest and lowest score tracking.
+Reviewed By:
+[Reviewer name]
 
-# Code Review Completed
+Feedback Received:
+The final_status labels in the priority decision chain don't match the exact wording required by the PRD's Part 24 status table — specifically the passed-days case, the graduation case, and the project/profile cases all use different text than what's specified.
 
-**Reviewed Member:** ______________________
+Was the Feedback Valid?
+Yes
 
-**Repository URL:** ______________________
+Change Made:
+Updated the `final_status` values in the priority decision chain: changed the fewer-than-four-passed-days branch to "Insufficient Passed Practices", the graduation branch to "Graduation Criteria Not Met", and both the project-incomplete and profile-not-verified branches to "Application On Hold", so every status now matches the PRD's Part 24 table exactly.
 
-### What Was Done Well
+Commit Message Used:
+Apply peer review improvement - align final status labels with PRD
 
-- Student information validation was implemented correctly.
-- Attendance and practice score validation loops effectively handled invalid inputs.
-- Absent practice days were correctly excluded from score calculations.
-- Highest and lowest score tracking worked accurately without using lists or built-in functions.
-- The final report was well structured, readable, and easy to understand.
-
-### Issue Identified
-
-The validation messages displayed during attendance and practice score input could provide clearer guidance about the accepted input values.
-
-### Suggested Improvement
-
-Display more descriptive validation messages to improve the user experience.
-
-Examples:
-
-- **Attendance:** `Enter a value between 0 and 100.`
-- **Practice Score:** `Enter -1 for absent or a value between 0 and 100.`
-
-These improvements make the application easier to use without changing the program logic.
-
-# Feedback Received
-
-**Reviewed By:** ______________________
-
-### Feedback Received
-
-The overall program logic is correct and follows the project requirements. The report formatting is clear, and the implementation is easy to understand. However, the validation messages can be made more descriptive so users immediately know the acceptable input range.
-
-### Was the Feedback Valid?
-
-**Yes**
-
-### Change Made
-
-Updated the attendance validation message to clearly specify the accepted range (**0 to 100**) and updated the practice score validation message to indicate that users should enter **-1 for an absent day** or **a value between 0 and 100**. The report formatting was also reviewed to maintain consistency throughout the application.
-
-### Commit Message Used
-
-```text
-Improve input validation messages and report formatting based on peer review
-```
-
-# Improvement Made After Review
-
-Based on the peer review feedback, the input validation messages were improved to provide clearer guidance during user input. The attendance validation now clearly specifies the accepted range (**0 to 100**), and the practice score validation explicitly states that users should enter **-1 for an absent day** or **a value between 0 and 100**.
-
-After implementing these improvements, the application was tested again to verify that the validation logic, score processing, performance calculations, placement eligibility evaluation, and final report generation continued to work correctly without affecting the existing functionality.
-
-# Acknowledgement
-
-This project was developed as part of the **PrepTrack – Placement Preparation Performance Analyzer** assignment. It provided practical experience in applying Python fundamentals such as input validation, conditional statements, loops, counters, accumulators, Boolean logic, and formatted report generation. The project also helped strengthen problem-solving skills and reinforced the importance of writing structured, readable, and maintainable code.
+## Improvement Made After Review
+Corrected the `final_status` string values inside the priority-ordered `if`/`elif` decision chain in Section 6 (Determine Final Status) of `main.py`, so that the fewer-than-four-passed-days, graduation-not-eligible, project-incomplete, and profile-not-verified branches now display the exact status text defined in the PRD's Part 24 table instead of the previously reused or reworded labels. Re-ran TC-04, TC-07, TC-08, and TC-09 afterward to confirm the corrected labels appear in the final report.
