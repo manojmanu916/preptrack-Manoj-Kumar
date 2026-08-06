@@ -89,3 +89,145 @@ The program performs comprehensive input validation, score classification, highe
 - Accumulators
 - Formatted Output using f-strings
 - Precision Formatting (`{average_score:.2f}`)
+
+# Instructions to Run the Program
+
+To execute the application, run the following command:
+
+```bash
+python main.py
+```
+
+or
+
+```bash
+python3 main.py
+```
+
+## Steps to Run
+
+1. Install Python 3.x on your system.
+2. Open the project folder.
+3. Open a terminal or command prompt.
+4. Navigate to the project directory.
+5. Execute the program using:
+
+```bash
+python main.py
+```
+
+6. Enter the required student details.
+7. Enter the attendance percentage.
+8. Enter project completion status (`yes` or `no`).
+9. Enter profile verification status (`yes` or `no`).
+10. Enter practice scores for all seven days (`0–100`) or `-1` for an absent day.
+11. View the generated PrepTrack report.
+
+# Sample Output
+
+==================================================
+              PREPTRACK APPLICATION
+==================================================
+Enter student name: Manoj Kumar
+Enter registration number: KODJGP0D2
+Enter graduation year: 2026
+Enter attendance percentage: 90
+Attendance accepted.
+Has the student completed the required project? (yes/no): yes
+Is the student profile verified? (yes/no): yes
+Enter Day 1 score (0-100) or -1 for absent:98
+Score accepted.
+Day 1 Performance : Strong
+Enter Day 2 score (0-100) or -1 for absent:89
+Score accepted.
+Day 2 Performance : Strong
+Enter Day 3 score (0-100) or -1 for absent:87
+Score accepted.
+Day 3 Performance : Strong
+Enter Day 4 score (0-100) or -1 for absent:75
+Score accepted.
+Day 4 Performance : Strong
+Enter Day 5 score (0-100) or -1 for absent:-1
+Score accepted.
+Day 5 Result : Absent
+Enter Day 6 score (0-100) or -1 for absent:68
+Score accepted.
+Day 6 Performance : Satisfactory
+Enter Day 7 score (0-100) or -1 for absent:59
+Score accepted.
+Day 7 Performance : Needs Improvement
+
+==================================================
+              PREPTRACK REPORT
+==================================================
+Student Name           : Manoj Kumar
+Registration Number    : KODJGP0D2
+Graduation Year        : 2026
+Attendance             : 90.00%
+
+Project Completed      : Yes
+Profile Verified       : Yes
+
+PRACTICE SUMMARY
+--------------------
+Total Practice Days    : 7
+Attempted Days         : 6
+Absent Days            : 1
+Passed Days            : 5
+Failed Days            : 1
+
+PERFORMANCE ANALYSIS
+----------------------
+Strong Days            : 4
+Satisfactory Days      : 1
+Needs Improvement Days : 1
+Critical Days          : 0
+
+Total Score            : 476
+Average Score          : 79.33
+
+Highest Score          : 98
+Highest Score Day      : Day 1
+Lowest Score           : 59
+Lowest Score Day       : Day 7
+
+First Critical Day     : Not Applicable
+First Critical Score   : Not Applicable
+
+FINAL DECISION
+------------------
+Placement Ready        : Yes
+
+Final Status           : Ready for Mock Interview
+Primary Blocker        : None
+Next Action            : Proceed to the mock interview.
+==================================================
+
+# Test-Result Summary
+
+| Test ID | Scenario | Expected Result | Actual Result | Status |
+| :------ | :------- | :-------------- | :------------ | :----: |
+| TC-01 | All eligibility conditions satisfied | Ready for Mock Interview | Ready for Mock Interview | ✅ Pass |
+| TC-02 | One critical score (<40) | Critical Support Required | Critical Support Required | ✅ Pass |
+| TC-03 | Project not completed | Project Incomplete | Project Incomplete | ✅ Pass |
+| TC-04 | Profile not verified | Profile Verification Pending | Profile Verification Pending | ✅ Pass |
+| TC-05 | Attendance below minimum (75%) | Attendance Improvement Required | Attendance Improvement Required | ✅ Pass |
+| TC-06 | Graduation year outside eligible range (2025–2027) | Graduation Not Eligible | Graduation Not Eligible | ✅ Pass |
+| TC-07 | Empty student name | Prompted until a valid name is entered | Prompted until a valid name is entered | ✅ Pass |
+| TC-08 | Invalid attendance (less than 0 or greater than 100) | Prompted until valid attendance is entered | Prompted until valid attendance is entered | ✅ Pass |
+| TC-09 | Invalid project/profile input | Prompted until **"yes"** or **"no"** is entered | Prompted until **"yes"** or **"no"** is entered | ✅ Pass |
+| TC-10 | Invalid practice score (>100 or <-1) | Prompted until a valid score is entered | Prompted until a valid score is entered | ✅ Pass |
+| TC-11 | All seven practice days absent (-1) | Practice Not Evaluated | Practice Not Evaluated | ✅ Pass |
+| TC-12 | Highest and lowest score tracking | Correct highest/lowest score and day displayed | Correct values displayed | ✅ Pass |
+| TC-13 | Average score calculation | Average displayed with two decimal places | Average displayed correctly | ✅ Pass |
+| TC-14 | Multiple blockers present | Highest-priority blocker displayed | Correct blocker displayed | ✅ Pass |
+
+# Project Structure
+
+```text
+preptrack-Manoj-Kumar/
+│
+├── main.py
+├── README.md
+└── output.txt
+```
