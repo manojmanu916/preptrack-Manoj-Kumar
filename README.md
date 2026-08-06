@@ -204,130 +204,25 @@ Next Action            : Proceed to the mock interview.
 ==================================================
 
 # Test-Result Summary
-<h1>Test-Result Summary</h1>
 
-<table>
-<tr>
-<th>Test ID</th>
-<th>Scenario</th>
-<th>Expected Result</th>
-<th>Actual Result</th>
-<th>Status</th>
-</tr>
+# Test-Result Summary
 
-<tr>
-<td>TC-01</td>
-<td>All eligibility conditions satisfied</td>
-<td>Ready for Mock Interview</td>
-<td>Ready for Mock Interview</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-02</td>
-<td>One critical score (&lt;40)</td>
-<td>Critical Support Required</td>
-<td>Critical Support Required</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-03</td>
-<td>Project not completed</td>
-<td>Project Incomplete</td>
-<td>Project Incomplete</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-04</td>
-<td>Profile not verified</td>
-<td>Profile Verification Pending</td>
-<td>Profile Verification Pending</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-05</td>
-<td>Attendance below minimum (75%)</td>
-<td>Attendance Improvement Required</td>
-<td>Attendance Improvement Required</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-06</td>
-<td>Graduation year outside eligible range (2025–2027)</td>
-<td>Graduation Not Eligible</td>
-<td>Graduation Not Eligible</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-07</td>
-<td>Empty student name</td>
-<td>Prompted until a valid name is entered</td>
-<td>Prompted until a valid name is entered</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-08</td>
-<td>Invalid attendance (less than 0 or greater than 100)</td>
-<td>Prompted until valid attendance is entered</td>
-<td>Prompted until valid attendance is entered</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-09</td>
-<td>Invalid project/profile input</td>
-<td>Prompted until "yes" or "no" is entered</td>
-<td>Prompted until "yes" or "no" is entered</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-10</td>
-<td>Invalid practice score (&gt;100 or &lt;-1)</td>
-<td>Prompted until a valid score is entered</td>
-<td>Prompted until a valid score is entered</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-11</td>
-<td>All seven practice days absent (-1)</td>
-<td>Practice Not Evaluated</td>
-<td>Practice Not Evaluated</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-12</td>
-<td>Highest and lowest score tracking</td>
-<td>Correct highest and lowest score with corresponding day displayed</td>
-<td>Correct values displayed</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-13</td>
-<td>Average score calculation</td>
-<td>Average displayed with two decimal places</td>
-<td>Average displayed correctly</td>
-<td>✅ Pass</td>
-</tr>
-
-<tr>
-<td>TC-14</td>
-<td>Multiple blockers present</td>
-<td>Highest-priority blocker displayed</td>
-<td>Correct blocker displayed</td>
-<td>✅ Pass</td>
-</tr>
-
-</table>
+| Test ID | Scenario | Expected Result | Actual Result | Status |
+|:-------:|----------|-----------------|---------------|:------:|
+| TC-01 | All eligibility conditions satisfied | Ready for Mock Interview | Ready for Mock Interview | ✅ Pass |
+| TC-02 | One critical score (<40) | Critical Support Required | Critical Support Required | ✅ Pass |
+| TC-03 | Project not completed | Project Incomplete | Project Incomplete | ✅ Pass |
+| TC-04 | Profile not verified | Profile Verification Pending | Profile Verification Pending | ✅ Pass |
+| TC-05 | Attendance below minimum (75%) | Attendance Improvement Required | Attendance Improvement Required | ✅ Pass |
+| TC-06 | Graduation year outside eligible range (2025–2027) | Graduation Not Eligible | Graduation Not Eligible | ✅ Pass |
+| TC-07 | Empty student name | Prompted until a valid name is entered | Prompted until a valid name is entered | ✅ Pass |
+| TC-08 | Invalid attendance (less than 0 or greater than 100) | Prompted until a valid attendance is entered | Prompted until a valid attendance is entered | ✅ Pass |
+| TC-09 | Invalid project/profile input | Prompted until **"yes"** or **"no"** is entered | Prompted until **"yes"** or **"no"** is entered | ✅ Pass |
+| TC-10 | Invalid practice score (>100 or <-1) | Prompted until a valid score is entered | Prompted until a valid score is entered | ✅ Pass |
+| TC-11 | All seven practice days absent (-1) | Practice Not Evaluated | Practice Not Evaluated | ✅ Pass |
+| TC-12 | Highest and lowest score tracking | Correct highest and lowest score with corresponding day displayed | Correct values displayed | ✅ Pass |
+| TC-13 | Average score calculation | Average displayed with two decimal places | Average displayed correctly | ✅ Pass |
+| TC-14 | Multiple blockers present | Highest-priority blocker displayed | Correct blocker displayed | ✅ Pass |
 
 # Project Structure
 
