@@ -231,3 +231,128 @@ preptrack-Manoj-Kumar/
 ├── README.md
 └── output.txt
 ```
+# Individual Contribution
+
+**Name:** Manoj Kumar
+
+**Repository URL:** *(Add your GitHub repository URL here)*
+
+### My Main Contribution
+
+Implemented the complete execution flow in `main.py`, including student profile validation, attendance validation, project and profile verification, seven-day practice score processing, performance classification, placement eligibility evaluation, and generation of the final PrepTrack report.
+
+### Features I Implemented
+
+- Student information validation
+- Attendance validation
+- Project completion validation
+- Profile verification validation
+- Seven-day practice score processing
+- Practice score validation
+- Absent day handling using `continue`
+- Highest score tracking
+- Lowest score tracking
+- Performance classification
+- Passed and failed day counting
+- First critical score detection
+- Total score calculation
+- Average score calculation
+- Placement eligibility evaluation
+- Final decision generation
+- Placement readiness evaluation
+- Complete formatted report generation
+
+### Python Concepts I Used
+
+- Variables
+- Integer, Float, String and Boolean Data Types
+- Input and Output
+- Type Casting
+- Arithmetic Operators
+- Comparison Operators
+- Logical Operators
+- Assignment Operators
+- `if`, `elif`, `else`
+- Nested Conditions
+- `while` Loop
+- `for` Loop
+- `range()`
+- `break`
+- `continue`
+- Boolean Expressions
+- Counters
+- Accumulators
+- Formatted Output using f-strings
+
+### Most Difficult Logic
+
+The most challenging part of the project was implementing the highest score and lowest score tracking without using lists, arrays, or built-in functions such as `max()` and `min()`. Another challenge was correctly storing only the first critical score while continuing to process the remaining practice days.
+
+### Problem I Faced
+
+Initially, it was difficult to ensure that absent practice days (`-1`) were excluded from total score calculation, average score calculation, highest score tracking, and lowest score tracking. Maintaining accurate counters while processing all seven practice days also required careful control flow.
+
+### How I Solved It
+
+I handled absent days immediately after score validation by incrementing `absent_days` and using the `continue` statement to skip further processing for that day. I also used the `first_attempt_found` flag to initialize the first valid score before comparing subsequent scores, ensuring accurate highest and lowest score tracking.
+
+# Code Review Completed
+
+**Reviewed Member:** ______________________
+
+**Repository URL:** ______________________
+
+### What Was Done Well
+
+- Student information validation was implemented correctly.
+- Attendance and practice score validation loops effectively handled invalid inputs.
+- Absent practice days were correctly excluded from score calculations.
+- Highest and lowest score tracking worked accurately without using lists or built-in functions.
+- The final report was well structured, readable, and easy to understand.
+
+### Issue Identified
+
+The validation messages displayed during attendance and practice score input could provide clearer guidance about the accepted input values.
+
+### Suggested Improvement
+
+Display more descriptive validation messages to improve the user experience.
+
+Examples:
+
+- **Attendance:** `Enter a value between 0 and 100.`
+- **Practice Score:** `Enter -1 for absent or a value between 0 and 100.`
+
+These improvements make the application easier to use without changing the program logic.
+
+# Feedback Received
+
+**Reviewed By:** ______________________
+
+### Feedback Received
+
+The overall program logic is correct and follows the project requirements. The report formatting is clear, and the implementation is easy to understand. However, the validation messages can be made more descriptive so users immediately know the acceptable input range.
+
+### Was the Feedback Valid?
+
+**Yes**
+
+### Change Made
+
+Updated the attendance validation message to clearly specify the accepted range (**0 to 100**) and updated the practice score validation message to indicate that users should enter **-1 for an absent day** or **a value between 0 and 100**. The report formatting was also reviewed to maintain consistency throughout the application.
+
+### Commit Message Used
+
+```text
+Improve input validation messages and report formatting based on peer review
+```
+
+# Improvement Made After Review
+
+Based on the peer review feedback, the input validation messages were improved to provide clearer guidance during user input. The attendance validation now clearly specifies the accepted range (**0 to 100**), and the practice score validation explicitly states that users should enter **-1 for an absent day** or **a value between 0 and 100**.
+
+After implementing these improvements, the application was tested again to verify that the validation logic, score processing, performance calculations, placement eligibility evaluation, and final report generation continued to work correctly without affecting the existing functionality.
+
+# Acknowledgement
+
+This project was developed as part of the **PrepTrack – Placement Preparation Performance Analyzer** assignment. It provided practical experience in applying Python fundamentals such as input validation, conditional statements, loops, counters, accumulators, Boolean logic, and formatted report generation. The project also helped strengthen problem-solving skills and reinforced the importance of writing structured, readable, and maintainable code.
