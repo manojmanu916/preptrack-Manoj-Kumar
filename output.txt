@@ -1,42 +1,42 @@
 ==================================================
               PREPTRACK APPLICATION
 ==================================================
-Enter student name: Manoj Kumar
-Enter registration number: KODJGP0D2
+Enter student name: Manoj
+Enter registration number: PY24045
 Enter graduation year: 2026
-Enter attendance percentage: 90
+Enter attendance percentage: 82
 Attendance accepted.
 Has the student completed the required project? (yes/no): yes
 Is the student profile verified? (yes/no): yes
-Enter Day 1 score (0-100) or -1 for absent:98
+Enter Day 1 score (0-100) or -1 for absent: 85
 Score accepted.
 Day 1 Performance : Strong
-Enter Day 2 score (0-100) or -1 for absent:89
+Enter Day 2 score (0-100) or -1 for absent: 78
 Score accepted.
 Day 2 Performance : Strong
-Enter Day 3 score (0-100) or -1 for absent:87
+Enter Day 3 score (0-100) or -1 for absent: 92
 Score accepted.
 Day 3 Performance : Strong
-Enter Day 4 score (0-100) or -1 for absent:75
+Enter Day 4 score (0-100) or -1 for absent: 60
 Score accepted.
-Day 4 Performance : Strong
-Enter Day 5 score (0-100) or -1 for absent:-1
+Day 4 Performance : Satisfactory
+Enter Day 5 score (0-100) or -1 for absent: 35
 Score accepted.
-Day 5 Result : Absent
-Enter Day 6 score (0-100) or -1 for absent:68
+Day 5 Performance : Critical
+Enter Day 6 score (0-100) or -1 for absent: -1
 Score accepted.
-Day 6 Performance : Satisfactory
-Enter Day 7 score (0-100) or -1 for absent:59
+Day 6 Result : Absent
+Enter Day 7 score (0-100) or -1 for absent: 70
 Score accepted.
-Day 7 Performance : Needs Improvement
+Day 7 Performance : Satisfactory
 
 ==================================================
               PREPTRACK REPORT
 ==================================================
-Student Name           : Manoj Kumar
-Registration Number    : KODJGP0D2
+Student Name           : Manoj
+Registration Number    : PY24045
 Graduation Year        : 2026
-Attendance             : 90.00%
+Attendance             : 82.00%
 
 Project Completed      : Yes
 Profile Verified       : Yes
@@ -51,27 +51,27 @@ Failed Days            : 1
 
 PERFORMANCE ANALYSIS
 ----------------------
-Strong Days            : 4
-Satisfactory Days      : 1
-Needs Improvement Days : 1
-Critical Days          : 0
+Strong Days            : 3
+Satisfactory Days      : 2
+Needs Improvement Days : 0
+Critical Days          : 1
 
-Total Score            : 476
-Average Score          : 79.33
+Total Score            : 420
+Average Score          : 70.00
 
-Highest Score          : 98
-Highest Score Day      : Day 1
-Lowest Score           : 59
-Lowest Score Day       : Day 7
+Highest Score          : 92
+Highest Score Day      : Day 3
+Lowest Score           : 35
+Lowest Score Day       : Day 5
 
-First Critical Day     : Not Applicable
-First Critical Score   : Not Applicable
+First Critical Day     : Day 5
+First Critical Score   : 35
 
 FINAL DECISION
 ------------------
-Placement Ready        : Yes
+Placement Ready        : No
 
-Final Status           : Ready for Mock Interview
-Primary Blocker        : None
-Next Action            : Proceed to the mock interview.
+Final Status           : Critical Support Required
+Primary Blocker        : Critical score found
+Next Action            : Improve the first critical score.
 ==================================================
