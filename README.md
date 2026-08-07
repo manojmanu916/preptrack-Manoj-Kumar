@@ -181,10 +181,9 @@ How I solved it: Placed the `if score == -1` check immediately after score valid
 
 ## Code Review Completed
 
-Reviewed Member: [Teammate name]
+Reviewed Member: [Yaswanth Yuva Kiran ]
 
-Repository URL:
-[Teammate repository link]
+Repository URL: [https://github.com/YaswanthN28/preptrack-Yaswanth.git]
 
 What Was Done Well:
 - The absent-day check (`if score == -1`) runs immediately after score validation and before any classification logic, so `continue` correctly skips highest/lowest comparison, total_score accumulation, and passed/failed counting for that day.
@@ -199,7 +198,7 @@ Suggested Improvement:
 ## Feedback Received
 
 Reviewed By:
-[Reviewer name]
+[Yaswanth Yuva Kiran]
 
 Feedback Received:
 The final_status labels in the priority decision chain don't match the exact wording required by the PRD's Part 24 status table — specifically the passed-days case, the graduation case, and the project/profile cases all use different text than what's specified.
